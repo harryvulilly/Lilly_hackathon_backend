@@ -36,8 +36,7 @@ function NewHirePage() {
   const [templates, setTemplates] = useState([]);
   const [copiedTemplates, setCopiedTemplates] = useState([]);
   // Fetch data from BE
-  useEffect(async () => {
-    const response = await fetch("localhost:5000/checkuser");
+  useEffect(() => {
     setTemplates(exampleTemplates[0]["generated-suggestions"]);
     setCopiedTemplates(exampleTemplates[0]["generated-suggestions"]);
   }, []);
@@ -136,11 +135,7 @@ function NewHirePage() {
               <h1 className="text-2xl">You are all set</h1>
             </div>
           ) : (
-<<<<<<< HEAD
             <ul className="w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg">
-=======
-            <ul className="w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
->>>>>>> 1bb16712241d882b62da9fd873609f4edf31b649
               {templates.map((action, index) => {
                 function handleSetSuggestion(value) {
                   setTemplates((templates) =>
@@ -195,11 +190,7 @@ function NewHirePage() {
           <form className="w-1/3 px-5" onSubmit={(e) => handleSubmit(e)}>
             <label className="text-3xl">Suggest Changes</label>
 
-<<<<<<< HEAD
             <ul className="mt-2.5 w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg">
-=======
-            <ul className="mt-2.5 w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
->>>>>>> 1bb16712241d882b62da9fd873609f4edf31b649
               {copiedTemplates.map((action, index) => {
                 function handleSetAction(value) {
                   setCopiedTemplates((templates) =>
@@ -221,11 +212,7 @@ function NewHirePage() {
                 return (
                   <li
                     key={index}
-<<<<<<< HEAD
                     className="w-full border-b border-gray-200 rounded-t-lg "
-=======
-                    className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600 text-black"
->>>>>>> 1bb16712241d882b62da9fd873609f4edf31b649
                   >
                     <div className="flex items-center px-3">
                       <input
