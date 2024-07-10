@@ -180,7 +180,12 @@ function NewHirePage() {
                         htmlFor={`${action.tool}-checkbox`}
                         className="w-full py-3 ms-2 font-medium cursor-pointer text-xl"
                       >
-                        <a href={action.url} target="_blank" rel="noreferrer" className="hover:underline hover:text-[#00a1de]">
+                        <a
+                          href={action.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline hover:text-[#00a1de]"
+                        >
                           {action.tool}
                         </a>
                       </label>
