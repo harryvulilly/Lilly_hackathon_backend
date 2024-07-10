@@ -8,7 +8,7 @@ function SignInPage() {
 
   const checkUser = async (email, password) => {
     try {
-      const response = await fetch("/checkuser", {
+      const response = await fetch("http://localhost:5000/checkuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
