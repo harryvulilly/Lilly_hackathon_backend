@@ -11,7 +11,7 @@ function Navigation() {
           height={50}
           className="mx-5"
         />
-        <h1 className="pr-5">New Employee Resources</h1>
+        <h1 className="pr-5">LillyOnboard</h1>
       </Link>
     </nav>
   );

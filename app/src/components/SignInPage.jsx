@@ -41,7 +41,7 @@ function SignInPage() {
         className="opacity-50 fixed -z-10 w-screen h-screen blur-md"
       />
       <div className="flex flex-col bg-white text-[#000000] w-1/3 py-5 px-10 rounded-lg">
-        <label className="text-3xl text-center">Welcome to Lilly!</label>
+        <label className="text-3xl text-center">Welcome to LillyOnboard!</label>
 
         <label htmlFor="email" className="text-xl">
           Lilly Email

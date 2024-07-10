@@ -3,6 +3,7 @@ import Checklist from "./Checklist.jsx";
 import imageUrl from "../send.png";
 import imageUrlSent from "../sent.png";
 import Navigation from "./Navigation.jsx";
+import Footer from "./Footer.jsx"
 
 function OwnerPage() {
   const [items, setItems] = useState([]);
@@ -260,6 +261,8 @@ function OwnerPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

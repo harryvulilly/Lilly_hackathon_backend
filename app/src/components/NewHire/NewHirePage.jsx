@@ -3,6 +3,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import Navigation from "../Navigation";
 import GeneralNewHire from "./GeneralNewHire";
 import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 const exampleTemplates = [
   {
@@ -63,7 +64,7 @@ function NewHirePage() {
 
       <GeneralNewHire />
 
-      <main className="md:flex md:flex-row md:justify-around md:mt-5">
+      <main className="md:flex md:flex-row md:justify-around md:mt-5 min-h-min">
         <div className="w-1/3 px-5">
           <h1 className="text-3xl mb-2.5">Useful Links</h1>
           <ul>
@@ -271,6 +272,8 @@ function NewHirePage() {
           </form>
         )}
       </main>
+      
+      <Footer />
     </div>
   );
 }

@@ -17,7 +17,7 @@ function Welcome() {
         className="opacity-50 fixed -z-10 w-screen h-screen blur-md"
       />
       <div className="py-4 z-10">
-        <h1 className="text-5xl text-center">New Employee Resources</h1>
+        <h1 className="text-5xl text-center">LillyOnboard</h1>
         <h2 className="pt-5 w-8/12 mx-auto text-3xl text-center">
           One stop shop for new employees
         </h2>
