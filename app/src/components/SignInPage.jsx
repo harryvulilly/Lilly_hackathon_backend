@@ -35,10 +35,14 @@ function SignInPage() {
 
   return (
     <div className="min-w-full min-h-screen flex justify-center items-center">
+      <div 
+       className="min-w-full min-h-screen fixed -z-10 opacity-30 bg-black"
+      />
+
       <img
         alt="Lilly Corporate Center"
         src="https://upload.wikimedia.org/wikipedia/commons/0/05/Eli_Lilly_Corporate_Center%2C_Indianapolis%2C_Indiana%2C_USA.jpg"
-        className="opacity-50 fixed -z-10 w-screen h-screen blur-md"
+        className="opacity-50 fixed -z-20 w-screen h-screen blur-md"
       />
       <div className="flex flex-col bg-white text-[#000000] w-1/3 py-5 px-10 rounded-lg">
         <label className="text-3xl text-center">Welcome to LillyOnboard!</label>
