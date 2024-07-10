@@ -85,6 +85,19 @@ app.get("/getchanges/:template_id", (req, res) => {
   });
 });
 
+app.delete("/commitchanges/:id", (req, res) => {
+  const changeId = parseInt(req.params.id);
+
+  const query = "DELETE FROM newhire_changes WHERE id = ?";
+
+  db.query(query, [changeId], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json({ message: "Change committed successfully", result });
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
