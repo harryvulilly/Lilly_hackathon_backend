@@ -5,10 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-<<<<<<< HEAD
-=======
 app.use(cors());
->>>>>>> 1bb16712241d882b62da9fd873609f4edf31b649
 const port = 5000;
 
 console.log(process.env.DB_HOST);
