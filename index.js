@@ -35,10 +35,10 @@ app.post('/adduser', (req, res) => {
 });
 
 app.post('/checkuser', (req, res) => {
-    const { email } = req.body;
-    const query = 'SELECT email, role FROM users WHERE email = ?';
+    const { email, password } = req.body;
+    const query = 'SELECT email, password, role FROM users WHERE email = ? AND password = ?';
     
-    db.query(query, [email], (err, result) => {
+    db.query(query, [email, password], (err, result) => {
       if (err) {
         return res.status(500).send(err);
       }
