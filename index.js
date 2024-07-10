@@ -72,6 +72,77 @@ app.get("/getoptions", (req, res) => {
   });
 });
 
+app.get("/getchanges/:template_id", (req, res) => {
+  const templateId = parseInt(req.params.template_id);
+
+  const query = "SELECT * FROM changes WHERE template_id = ?";
+
+  db.query(query, [templateId], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json(result);
+  });
+});
+
+app.delete("/commitchanges/:id", (req, res) => {
+  const changeId = parseInt(req.params.id);
+
+  const query = "DELETE FROM newhire_changes WHERE id = ?";
+
+  db.query(query, [changeId], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json({ message: "Change committed successfully", result });
+  });
+});
+
+app.delete("/deletechanges/:id", (req, res) => {
+  const changeId = parseInt(req.params.id);
+
+  const query = "DELETE FROM newhire_changes WHERE id = ?";
+
+  db.query(query, [changeId], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json({ message: "Change committed successfully", result });
+  });
+});
+
+app.post("/savechanges", (req, res) => {
+  const {
+    template_id,
+    changed_platform,
+    changed_link,
+    changed_instruction,
+    changed_hyper_text,
+  } = req.body;
+
+  const query = `
+    INSERT INTO NewHire_Changes (template_id, changed_platform, changed_link, changed_instruction, changed_hyper_text)
+    VALUES (?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    query,
+    [
+      template_id,
+      changed_platform,
+      changed_link,
+      changed_instruction,
+      changed_hyper_text,
+    ],
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      return res.json({ message: "Change saved successfully", result });
+    }
+  );
+});
+
 app.post("/addcustomizations", (req, res) => {
   const { 
     platform_name,
