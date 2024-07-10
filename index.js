@@ -175,6 +175,44 @@ app.post("/addcustomizations", (req, res) => {
   );
 });
 
+app.post("/savetemplate", (req, res) => {
+  const { template_id, platform_name } = req.body;
+
+  const query = `INSERT INTO Templates (newhire_id) VALUES (?)`;
+  
+  db.query(query, [newhire_id], (err, result) => {
+    if (err) {
+      res.status(500).send('There is an error saving the template');
+      throw err;
+    }
+    const template_id = result.insertId;
+    const techStackValues = tech_stack.map(stack => {
+      return [template_id, stack.platform_name];
+    });
+  
+    db.query('INSERT INTO Template_Tech_Stack (template_id, platform_name) VALUES ?', [techStackValues], (err, result) => {
+      if (err) {
+        res.status(500).send("Cannot save template options");
+        throw err;
+      }
+      res.status(200).send("Template saved successfully!");
+    });
+  });
+});
+
+app.get("/gettemplate:id", (req, res) => {
+  const gettemplate = parseInt(req.params.id);
+
+  const query = "SELECT id FROM Templates WHERE id = ? LIMIT 1";
+
+  db.query(query, [gettemplate], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json({message: "Template displayed successfully", result});
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
