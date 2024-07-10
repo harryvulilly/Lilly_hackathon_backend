@@ -10,18 +10,22 @@ const exampleTemplates = [
     "generated-suggestions": [
       {
         tool: "GitHub",
+        url: "https://dev.lilly.com/docs/platforms-and-tools/github/",
         completed: false,
       },
       {
         tool: "Jira",
+        url: "https://dev.lilly.com/docs/platforms-and-tools/jira/",
         completed: false,
       },
       {
         tool: "LucidChart",
+        url: "https://dev.lilly.com/docs/platforms-and-tools/lucidsuite/",
         completed: true,
       },
       {
         tool: "Confluence",
+        url: "https://dev.lilly.com/docs/platforms-and-tools/confluence/",
         completed: false,
       },
     ],
@@ -176,7 +180,9 @@ function NewHirePage() {
                         htmlFor={`${action.tool}-checkbox`}
                         className="w-full py-3 ms-2 font-medium cursor-pointer text-xl"
                       >
-                        {action.tool}
+                        <a href={action.url} target="_blank" rel="noreferrer" className="hover:underline hover:text-[#00a1de]">
+                          {action.tool}
+                        </a>
                       </label>
                     </div>
                   </li>
