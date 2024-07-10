@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Checklist from "./Checklist.jsx";
 import imageUrl from "../send.png";
 import imageUrlSent from "../sent.png";
+import Navigation from "./Navigation.jsx";
 
 function OwnerPage() {
   const [items, setItems] = useState([]);
@@ -146,109 +147,117 @@ function OwnerPage() {
   };
 
   return (
-    <div className="owner-page p-8">
-      <h2 className="text-2xl  font-bold mb-4"> Document Generator </h2>
+    <div>
+      <Navigation />
+      <div className="owner-page p-8">
+        <h2 className="text-2xl  font-bold mb-4"> Document Generator </h2>
 
-      <h4 className="rounded-2xl text-xl text-black">
-        Add technologies and onboarding instructions.
-      </h4>
-      <div className="flex flex-row">
-        <div className="flex-1 mr-8">
-          <h3 className="text-xl font-bold mb-4">Selected: </h3>
-          <ul className="list-disc pl-8 mb-4">
-            {items.map((item, index) => (
-              <li key={index} className="mb-2">
-                <button
-                  className="bg-red-500 text-white px-2 py-1 rounded ml-2"
-                  onClick={() => removeItem(item)}
-                >
-                  - {item}
-                </button>
+        <h4 className="rounded-2xl text-xl text-black">
+          Add technologies and onboarding instructions.
+        </h4>
+        <div className="flex flex-row">
+          <div className="flex-1 mr-8">
+            <h3 className="text-xl font-bold mb-4">Selected: </h3>
+            <ul className="list-disc pl-8 mb-4">
+              {items.map((item, index) => (
+                <li key={index} className="mb-2">
+                  <button
+                    className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+                    onClick={() => removeItem(item)}
+                  >
+                    - {item}
+                  </button>
 
-                <div>
-                  <label htmlFor={`link-${item}`}> Link: </label>
-                </div>
-                <div>
-                  <textarea
-                    type="text"
-                    id={`link-${item}`}
-                    value={optionLinks[item]}
-                    onChange={(e) => handleLinkChange(item, e.target.value)}
-                    className="border px-2 py-1 w-full text-black"
-                    rows="1"
-                  />
-                </div>
-                <div>
-                  <label htmlFor={`definition-${item}`}> Instructions: </label>
-                </div>
-                <div>
-                  <textarea
-                    type="text"
-                    id={`definition-${item}`}
-                    value={optionDefinitions[item]}
-                    onChange={(e) =>
-                      handleDefinitionChange(item, e.target.value)
-                    }
-                    className="border px-2 py-1 w-full text-black"
-                    rows="3"
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <div>
+                    <label htmlFor={`link-${item}`}> Link: </label>
+                  </div>
+                  <div>
+                    <textarea
+                      type="text"
+                      id={`link-${item}`}
+                      value={optionLinks[item]}
+                      onChange={(e) => handleLinkChange(item, e.target.value)}
+                      className="border px-2 py-1 w-full text-black"
+                      rows="1"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`definition-${item}`}>
+                      {" "}
+                      Instructions:{" "}
+                    </label>
+                  </div>
+                  <div>
+                    <textarea
+                      type="text"
+                      id={`definition-${item}`}
+                      value={optionDefinitions[item]}
+                      onChange={(e) =>
+                        handleDefinitionChange(item, e.target.value)
+                      }
+                      className="border px-2 py-1 w-full text-black"
+                      rows="3"
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
 
-          <h3 className="text-xl font-bold mb-4">Commonly Used</h3>
-          <ul className="flex flex-wrap list-none pl-0 mb-4">
-            {initialOptions.map((option, index) => (
-              <li key={index} className="mb-2 mr-4 flex items-center">
-                <button
-                  className="bg-green-500 text-white px-2 py-1 rounded ml-2"
-                  onClick={() => addItem(option)}
-                >
-                  + {option}
-                </button>
-              </li>
-            ))}
-          </ul>
+            <h3 className="text-xl font-bold mb-4">Commonly Used</h3>
+            <ul className="flex flex-wrap list-none pl-0 mb-4">
+              {initialOptions.map((option, index) => (
+                <li key={index} className="mb-2 mr-4 flex items-center">
+                  <button
+                    className="bg-green-500 text-white px-2 py-1 rounded ml-2"
+                    onClick={() => addItem(option)}
+                  >
+                    + {option}
+                  </button>
+                </li>
+              ))}
+            </ul>
 
-          <h3 className="text-xl font-bold mb-4">Search Additional Options</h3>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="border px-4 py-2 mb-4 text-black"
-          />
-          <ul className="list-disc pl-8">
-            {filteredAdditionalOptions.map((option, index) => (
-              <li key={index} className="mb-2 flex items-center">
-                <button
-                  className="bg-green-500 text-white px-2 py-1 rounded ml-2"
-                  onClick={() => addItem(option)}
-                >
-                  + {option}
-                </button>
-              </li>
-            ))}
-            {filteredAdditionalOptions.length === 0 && searchTerm && (
-              <div>
-                <p className="mb-2">No matches found. Add a new option:</p>
-                <button
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
-                  onClick={addNewOption}
-                >
-                  Add New Option
-                </button>
-              </div>
-            )}
-          </ul>
-        </div>
-        <div className="flex-1">
-          <Checklist
-            data={checklistData}
-            name={employee}
-            handleSendButton={handleSendButton}
-          />
+            <h3 className="text-xl font-bold mb-4">
+              Search Additional Options
+            </h3>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="border px-4 py-2 mb-4 text-black"
+            />
+            <ul className="list-disc pl-8">
+              {filteredAdditionalOptions.map((option, index) => (
+                <li key={index} className="mb-2 flex items-center">
+                  <button
+                    className="bg-green-500 text-white px-2 py-1 rounded ml-2"
+                    onClick={() => addItem(option)}
+                  >
+                    + {option}
+                  </button>
+                </li>
+              ))}
+              {filteredAdditionalOptions.length === 0 && searchTerm && (
+                <div>
+                  <p className="mb-2">No matches found. Add a new option:</p>
+                  <button
+                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    onClick={addNewOption}
+                  >
+                    Add New Option
+                  </button>
+                </div>
+              )}
+            </ul>
+          </div>
+          <div className="flex-1">
+            <Checklist
+              data={checklistData}
+              name={employee}
+              handleSendButton={handleSendButton}
+            />
+          </div>
         </div>
       </div>
     </div>
