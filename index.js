@@ -72,6 +72,19 @@ app.get("/getoptions", (req, res) => {
   });
 });
 
+app.get("/getchanges/:template_id", (req, res) => {
+  const templateId = parseInt(req.params.template_id);
+
+  const query = "SELECT * FROM changes WHERE template_id = ?";
+
+  db.query(query, [templateId], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json(result);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
