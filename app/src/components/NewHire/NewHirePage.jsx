@@ -123,6 +123,16 @@ function NewHirePage() {
                 LillyFlow - General Questions
               </a>
             </li>
+            <li className="mb-1.5">
+              <a
+                href="https://backstage.apps.lrl.lilly.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xl underline"
+              >
+                BackStage - API Catalog
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -139,10 +149,10 @@ function NewHirePage() {
               {templates.map((action, index) => {
                 function handleSetSuggestion(value) {
                   setTemplates((templates) =>
-                    templates.map((a) => (a === action ? value : a))
+                    templates.map((a) => (a === action ? value : a)),
                   );
                   setCopiedTemplates((templates) =>
-                    copiedTemplates.map((a) => (a === action ? value : a))
+                    copiedTemplates.map((a) => (a === action ? value : a)),
                   );
                 }
 
@@ -194,7 +204,7 @@ function NewHirePage() {
               {copiedTemplates.map((action, index) => {
                 function handleSetAction(value) {
                   setCopiedTemplates((templates) =>
-                    templates.map((a) => (a === action ? value : a))
+                    templates.map((a) => (a === action ? value : a)),
                   );
                 }
 
@@ -205,7 +215,7 @@ function NewHirePage() {
                 function handleDeleteAction() {
                   // Need to make delete request in the backend
                   setCopiedTemplates((copiedTemplates) =>
-                    copiedTemplates.filter((a) => a !== action)
+                    copiedTemplates.filter((a) => a !== action),
                   );
                 }
 

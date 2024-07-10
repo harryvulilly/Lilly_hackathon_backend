@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Checklist from "./Checklist.jsx";
-import imageUrl from "../send.png"; 
-import imageUrlSent from "../sent.png"; 
+import imageUrl from "../send.png";
+import imageUrlSent from "../sent.png";
 
 function OwnerPage() {
   const [items, setItems] = useState([]);
@@ -30,33 +30,34 @@ function OwnerPage() {
   ];
 
   const [optionLinks, setOptionLinks] = useState({
-    "Confluence": "https://lilly-confluence.atlassian.net/wiki",
-    "Jira": "link",
-    "Github": "link",
-    "VSCode": "link",
-    "Biologica": "link",
+    Confluence: "https://lilly-confluence.atlassian.net/wiki",
+    Jira: "link",
+    Github: "link",
+    VSCode: "link",
+    Biologica: "link",
     "JFrog Artifactory": "link",
     "Xray Platform": "link",
     "HPC Artifactory": "link",
     "Docker Desktop": "link",
     "Postgres DB": "link",
-    "AWS": "link",
-    "PGAdmin": "link",
+    AWS: "link",
+    PGAdmin: "link",
   });
 
   const [optionDefinitions, setOptionDefinitions] = useState({
-    "Confluence": "A collaboration tool used for project management.",
-    "Jira": "A tool used for issue and project tracking.",
-    "Github": "A platform for version control and collaboration.",
-    "VSCode": "A source-code editor made by Microsoft.",
-    "Biologica": "Biological instructions and data management tool.\nStart here and install!",
+    Confluence: "A collaboration tool used for project management.",
+    Jira: "A tool used for issue and project tracking.",
+    Github: "A platform for version control and collaboration.",
+    VSCode: "A source-code editor made by Microsoft.",
+    Biologica:
+      "Biological instructions and data management tool.\nStart here and install!",
     "JFrog Artifactory": "Additional option 4 definition.",
     "Xray Platform": "Additional option 5 definition.",
     "HPC Artifactory": "Additional option 6 definition.",
     "Docker Desktop": "Additional option 7 definition.",
     "Postgres DB": "Additional option 8 definition.",
-    "AWS": "Additional option 9 definition.",
-    "PGAdmin": "Additional option 10 definition.",
+    AWS: "Additional option 9 definition.",
+    PGAdmin: "Additional option 10 definition.",
   });
 
   function handleSendButton(e) {
@@ -147,7 +148,7 @@ function OwnerPage() {
   return (
     <div className="owner-page p-8">
       <h2 className="text-2xl  font-bold mb-4"> Document Generator </h2>
-      
+
       <h4 className="rounded-2xl text-xl text-black">
         Add technologies and onboarding instructions.
       </h4>
@@ -243,10 +244,13 @@ function OwnerPage() {
           </ul>
         </div>
         <div className="flex-1">
-          <Checklist data={checklistData} name={employee} handleSendButton = {handleSendButton} />
+          <Checklist
+            data={checklistData}
+            name={employee}
+            handleSendButton={handleSendButton}
+          />
         </div>
       </div>
-     
     </div>
   );
 }
