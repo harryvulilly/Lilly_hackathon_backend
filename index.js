@@ -111,6 +111,38 @@ app.delete("/deletechanges/:id", (req, res) => {
   });
 });
 
+app.post("/savechanges", (req, res) => {
+  const {
+    template_id,
+    changed_platform,
+    changed_link,
+    changed_instruction,
+    changed_hyper_text,
+  } = req.body;
+
+  const query = `
+    INSERT INTO NewHire_Changes (template_id, changed_platform, changed_link, changed_instruction, changed_hyper_text)
+    VALUES (?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    query,
+    [
+      template_id,
+      changed_platform,
+      changed_link,
+      changed_instruction,
+      changed_hyper_text,
+    ],
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      return res.json({ message: "Change saved successfully", result });
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
