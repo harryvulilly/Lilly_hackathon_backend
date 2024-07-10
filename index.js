@@ -1,10 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+app.use(cors());
+const port = 5000;
 
 console.log(process.env.DB_HOST);
 
@@ -144,23 +146,33 @@ app.post("/savechanges", (req, res) => {
 });
 
 app.post("/addcustomizations", (req, res) => {
-  const { 
+  const {
     platform_name,
     platform_link,
     platform_instruction,
     hyper_text,
-    customization
+    customization,
   } = req.body;
 
   const query = `
   INSERT INTO Tech_Stack_Options (platform_name, platform_link, platform_instruction, hyper_text, customization) VALUES (?, ?, ?, ?, ?)`;
 
-  db.query( query, [platform_name, platform_link, platform_instruction, hyper_text, customization], (err, result) => {
-    if (err) {
-      return res.status(500).send(err);
+  db.query(
+    query,
+    [
+      platform_name,
+      platform_link,
+      platform_instruction,
+      hyper_text,
+      customization,
+    ],
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      return res.json({ message: "Change saved successfully", result });
     }
-    return res.json({message: "Change saved successfully", result});
-  });
+  );
 });
 
 app.listen(port, () => {
