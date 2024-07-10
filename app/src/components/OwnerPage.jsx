@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Checklist from "./Checklist.jsx";
-import imageUrl from "../send.png"; // Import the image
-import imageUrlSent from "../sent.png"; // Import the image
+import imageUrl from "../send.png"; 
+import imageUrlSent from "../sent.png"; 
 
 function OwnerPage() {
   const [items, setItems] = useState([]);
@@ -10,7 +10,7 @@ function OwnerPage() {
   const [sendText, setSendText] = useState("");
   const [checklistData, setChecklistData] = useState({});
 
-  const employee = "Ellie";
+  const employee = "Kevin Hart";
   const initialOptions = [
     "Confluence",
     "Jira",
@@ -146,12 +146,10 @@ function OwnerPage() {
 
   return (
     <div className="owner-page p-8">
-      <h2 className="text-2xl font-bold mb-4">Owner Page: Select Access</h2>
-      <h3> Employee: {employee} </h3>
-      <h3> Employee email: ellie.isnew@lilly.com </h3>
-      <h3> Employee start date: 07/15/2024 </h3>
-      <h4>
-        Instructions: Select technologies and preview what {employee} will see!{" "}
+      <h2 className="text-2xl  font-bold mb-4"> Document Generator </h2>
+      
+      <h4 className="rounded-2xl text-xl text-black">
+        Add technologies and onboarding instructions.
       </h4>
       <div className="flex flex-row">
         <div className="flex-1 mr-8">
@@ -245,26 +243,10 @@ function OwnerPage() {
           </ul>
         </div>
         <div className="flex-1">
-          <Checklist data={checklistData} name={employee} />
+          <Checklist data={checklistData} name={employee} handleSendButton = {handleSendButton} />
         </div>
       </div>
-      <div className="pt-5 flex justify-center">
-        <div>
-          {buttonVisibility === "visible" && (
-            <button
-              className="bg-white border-[1px] p-2.5 rounded-2xl text-xl text-black"
-              onClick={(e) => handleSendButton(e)}
-            >
-              <img src={imageUrl} width={100} height={100} />
-              Send
-            </button>
-          )}{" "}
-          {buttonVisibility === "hidden" && (
-            <img src={imageUrlSent} width={100} height={100} />
-          )}
-          <div> {sendText}</div>
-        </div>
-      </div>
+     
     </div>
   );
 }

@@ -135,7 +135,7 @@ function NewHirePage() {
               <h1 className="text-2xl">You are all set</h1>
             </div>
           ) : (
-            <ul className="w-1/2 md:w-full text-sm font-medium text-white bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <ul className="w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg">
               {templates.map((action, index) => {
                 function handleSetSuggestion(value) {
                   setTemplates((templates) =>
@@ -152,7 +152,7 @@ function NewHirePage() {
                 return (
                   <li
                     key={index}
-                    className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600 "
+                    className="w-full border-b border-gray-200 rounded-t-lg "
                   >
                     <div className="flex items-center ps-3">
                       <input
@@ -190,7 +190,7 @@ function NewHirePage() {
           <form className="w-1/3 px-5" onSubmit={(e) => handleSubmit(e)}>
             <label className="text-3xl">Suggest Changes</label>
 
-            <ul className="mt-2.5 w-1/2 md:w-full text-sm font-medium text-white bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <ul className="mt-2.5 w-1/2 md:w-full text-sm font-medium text-black bg-white border border-gray-200 rounded-lg">
               {copiedTemplates.map((action, index) => {
                 function handleSetAction(value) {
                   setCopiedTemplates((templates) =>
@@ -212,7 +212,7 @@ function NewHirePage() {
                 return (
                   <li
                     key={index}
-                    className="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                    className="w-full border-b border-gray-200 rounded-t-lg "
                   >
                     <div className="flex items-center px-3">
                       <input
