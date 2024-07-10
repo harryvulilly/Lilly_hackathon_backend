@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Scientist from "./assets/scientist.jpg"
 
 function Welcome() {
   const [role, setRole] = useState("");
@@ -16,7 +17,7 @@ function Welcome() {
       />
       <img
         alt="lilly scientist"
-        src="https://cdn.thepharmaletter.com/files/2022/12/819984c0-74c3-11ed-8ccd-df2a7a949035-eli_lilly_science_large.jpg"
+        src={Scientist}
         className="opacity-50 fixed -z-20 w-screen h-screen blur-md"
       />
       <div className="py-4 z-10">

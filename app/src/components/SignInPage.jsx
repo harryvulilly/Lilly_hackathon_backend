@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LCC from "./assets/LCC.jpg"
 
 function SignInPage() {
   const [email, setEmail] = useState("");
@@ -41,7 +42,7 @@ function SignInPage() {
 
       <img
         alt="Lilly Corporate Center"
-        src="https://upload.wikimedia.org/wikipedia/commons/0/05/Eli_Lilly_Corporate_Center%2C_Indianapolis%2C_Indiana%2C_USA.jpg"
+        src={LCC}
         className="opacity-50 fixed -z-20 w-screen h-screen blur-md"
       />
       <div className="flex flex-col bg-white text-[#000000] w-1/3 py-5 px-10 rounded-lg">
