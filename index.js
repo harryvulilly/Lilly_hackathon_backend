@@ -34,6 +34,29 @@ app.post('/adduser', (req, res) => {
   });
 });
 
+app.post('/checkuser', (req, res) => {
+    const { email } = req.body;
+    const query = 'SELECT email, role FROM users WHERE email = ?';
+    
+    db.query(query, [email], (err, result) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      if (result.length > 0) {
+        res.json({
+          access: true,
+          email: result[0].email,
+          role: result[0].role
+        });
+      } else {
+        res.json({
+          access: false,
+          message: 'User does not exist'
+        });
+      }
+    });
+  });
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
