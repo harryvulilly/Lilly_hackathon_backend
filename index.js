@@ -188,6 +188,19 @@ app.post("/savetemplate", (req, res) => {
   });
 });
 
+app.get("/gettemplate:id", (req, res) => {
+  const gettemplate = parseInt(req.params.id);
+
+  const query = "SELECT id FROM Templates WHERE id = ? LIMIT 1";
+
+  db.query(query, [gettemplate], (err, result) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    return res.json({message: "Template displayed successfully", result});
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
